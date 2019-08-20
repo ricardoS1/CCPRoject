@@ -1,0 +1,14 @@
+version: '3'
+services:
+  webapp:
+    container_name: web-app-container
+    image: 816002188/project-app:latest
+    ports:
+     - 80:5000
+    environment:
+      DB_USER: stairs1
+      DB_NAME: stairsdb
+      DB_PASSWORD: password123
+      DB_HOST: <REPLACE WITH RDS ENDPOINT ADDRESS>
+      DB_PORT: 3306
+  

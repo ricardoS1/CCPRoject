@@ -1,0 +1,192 @@
+{% extends 'layout.html' %}
+ {% block body %}
+<head>
+  <title>Stairs - Subscription</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+<h1>Subscription Plans</h1>
+<div class="container justify-content-center" id="bool">
+    <div class="row">
+        <div class="col-xs-12 col-md-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Free</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="the-price">
+                        <h1>
+                            $0<span class="subscript">/month</span></h1>
+                        <small>For businesses looking to test the water with business analytics</small>
+                    </div>
+                    <table class="table">
+                        <tr>
+                            <td>
+                                Business Trends
+                            </td>
+                        </tr>
+                        <tr class="active">
+                            <td>
+                                Aggregated Graphs
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Supports many file formats
+                            </td>
+                        </tr>
+                        <tr class="active">
+                            <td>
+                              -
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                               -
+                            </td>
+                        </tr>
+                        <tr class="active">
+                            <td>
+                              -
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                {% if session['name'] %}
+                <div class="panel-footer">
+                    <a href="/profile" class="btn btn-success" role="button">Purchase</a>
+                </div>
+                {% else %}
+                <div class="panel-footer">
+                    <a href="/login" class="btn btn-success" role="button">Purchase</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-3">
+            <div class="panel panel-success">
+                <div class="cnrflash">
+                    <div class="cnrflash-inner">
+
+                    </div>
+                </div>
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Standard</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="the-price">
+                        <h1>
+                            $499<span class="subscript">/month</span></h1>
+                        <small>For businesses looking to dive into their business analytic</small>
+                    </div>
+                    <table class="table">
+                        <tr>
+                            <td>
+                                Database integration
+                            </td>
+                        </tr>
+                        <tr class="active">
+                            <td>
+                                Detailed analysis of business trends
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Accurate business forcasts
+                            </td>
+                        </tr>
+                        <tr class="active">
+                            <td>
+                                Pertinent suggestions
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                More detailed graphs
+                            </td>
+                        </tr>
+                        <tr class="active">
+                            <td>
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                {% if session['name'] %}
+                <div class="panel-footer">
+                    <a href="/profile" class="btn btn-success" role="button">Purchase</a>
+                </div>
+                {% else %}
+                <div class="panel-footer">
+                    <a href="/login" class="btn btn-success" role="button">Purchase</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-3">
+            <div class="panel panel-danger">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Enterprise</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="the-price">
+                        <h1>
+                            $999<span class="subscript">/month</span></h1>
+                        <small>For businesses looking for serious and analysis and competitive advantage</small>
+                    </div>
+                    <table class="table">
+                        <tr>
+                            <td>
+                                Builds on the Standard tier
+                            </td>
+                        </tr>
+                        <tr class="active">
+                            <td>
+                                Most in-depth analysis, precise forcasts and suggestions
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Technical support
+                            </td>
+                        </tr>
+                        <tr class="active">
+                            <td>
+                                -
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                -
+                            </td>
+                        </tr>
+                        <tr class="active">
+                            <td>
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                {% if session['name'] %}
+                <div class="panel-footer">
+                    <a href="/profile" class="btn btn-success" role="button">Purchase</a>
+                </div>
+                {% else %}
+                <div class="panel-footer">
+                    <a href="/login" class="btn btn-success" role="button">Purchase</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+{% endblock %}
+
+
+

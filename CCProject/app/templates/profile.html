@@ -1,0 +1,136 @@
+ {% extends 'layout.html' %}
+ {% block body %}
+<head>
+    <title>Profile</title>
+    <link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
+</head>
+    <body>
+
+
+        <div class="jumbotron text-center bg-primary">
+            <h1 class="text-white" >{{session['name']}}'s Profile</h1>
+        </div>
+
+        <ul class="list-group">
+
+
+        <li class="list-group-item">
+            <h3 class="text-center">My Information</h3>
+        </li>
+
+
+
+        <li class="list-group-item">
+            <label>Email</label>
+            <p class="text-primary">{{session['email']}}</p>
+        </li>
+        <li class="list-group-item">
+            <label>Name</label>
+            <p class="text-primary">{{session['name']}} {{session['surname']}}</p>
+        </li>
+        <li class="list-group-item">
+            <label>Phone</label>
+            <p class="text-primary">{{session['phone']}}</p>
+        </li>
+        <li class="list-group-item">
+            <label>Address</label>
+            <p class="text-primary">{{session['address']}}</p>
+        </li>
+        <li class="list-group-item">
+            <label>Organization</label>
+            <p class="text-primary">{{session['organization']}}</p>
+        </li>
+        <li class="list-group-item">
+            <label>Stairs Package</label>
+            <p class="text-primary">{{session['package']}}</p>
+        </li>
+        <li class="list-group-item">
+            <label>Credit Card Number</label>
+            <p class="text-primary">{{session['cc_number']}}</p>
+        </li>
+
+
+
+
+        <li class="list-group-item">
+            <h3 class="text-center">Stairs Subscription Packages</h3>
+        </li>
+
+        <li class="list-group-item">
+            <h4 class="font-weight-bold">Current Subscription</h4>
+            <p class="text-success">{{session['current_sub'][2]}}</p>
+
+            <br>
+
+            <h4 class="font-weight-bold">Past Subscriptions</h4>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">Subscription</th>
+                  <th scope="col">Date Subscribed</th>
+                  <th scope="col">Date Ended</th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for item in session['subscriptions'] %}
+                <tr>
+                  <td>{{item[2]}}</td>
+                  <td>{{item[3]}}</td>
+                  <td>{{item[4]}}</td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+
+
+
+
+            <form action="{{url_for('update_subscription')}}" method="post">
+
+                <div class="form-group">
+                  <label><h4 class="font-weight-bold">Subscribe or Scale a Stairs Subscription Package:</h4></label>
+
+                  <select name="package" class="form-control" >
+                      {% if session['current_sub'][2] == 'None': %}
+                          <option value="None" selected>None</option>
+                          <option value="Free">Free</option>
+                          <option value="Standard">Standard</option>
+                          <option value="Enterprise">Enterprise</option>
+                      {% elif session['current_sub'][2] == 'Free': %}
+                            <option value="None">None</option>
+                          <option value="Free" selected>Free</option>
+                          <option value="Standard">Standard</option>
+                          <option value="Enterprise">Enterprise</option>
+                      {% elif session['current_sub'][2] == 'Standard': %}
+                            <option value="None">None</option>
+                          <option value="Free" >Free</option>
+                          <option value="Standard" selected>Standard</option>
+                          <option value="Enterprise">Enterprise</option>
+                      {% elif session['current_sub'][2] == 'Enterprise': %}
+                            <option value="None">None</option>
+                          <option value="Free" >Free</option>
+                          <option value="Standard">Standard</option>
+                          <option value="Enterprise" selected>Enterprise</option>
+                      {% endif %}
+                  </select>
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-primary form-control">Change Subscription</button>
+                 </div>
+            </form>
+
+
+
+        </li>
+
+
+
+
+
+        </ul>
+
+    </body>
+     
+  <script type="text/javascript" src="{{url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
+  <script type="text/javascript" src="{{url_for('static', filename = 'js/bootstrap.min.js')}}"></script>
+{% endblock%}
